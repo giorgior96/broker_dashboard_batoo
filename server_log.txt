@@ -1,0 +1,38 @@
+
+> dashboard@0.1.0 dev
+> next dev -p 3000
+
+  ▲ Next.js 14.2.3
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1735ms
+ ○ Compiling / ...
+ ✓ Compiled / in 5.5s (1612 modules)
+Fetching boats from Supabase...
+ ✓ Compiled in 431ms (762 modules)
+Error fetching boats: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column boats.created_at does not exist'
+}
+ HEAD / 200 in 6038ms
+Fetching boats from Supabase...
+Error fetching boats: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column boats.created_at does not exist'
+}
+ GET / 200 in 181ms
+ ✓ Compiled in 295ms (841 modules)
+Fetching boats from Supabase...
+Failed to set fetch cache https://agnjgyrvixawkgirxqpa.supabase.co/rest/v1/boats?select=*&order=last_seen_at.desc Error: Failed to set Next.js data cache, items over 2MB can not be cached (21536987 bytes)
+    at IncrementalCache.set (/home/giorgio/Scrivania/analytics/dashboard/node_modules/next/dist/server/lib/incremental-cache/index.js:391:23)
+    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/server/lib/patch-fetch.js:454:74)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getBoats (webpack-internal:///(rsc)/./lib/supabase.ts:14:29)
+    at async Page (webpack-internal:///(rsc)/./app/page.tsx:14:19)
+Fetched 7156 boats successfully.

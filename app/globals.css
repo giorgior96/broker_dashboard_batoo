@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Batoo Light Theme - Clean & Professional */
+    --background: 206 100% 98%;
+    /* #F5FAFF - Light blue-white */
+    --foreground: 231 65% 21%;
+    /* #121A54 - Dark navy */
+
+    --card: 0 0% 100%;
+    /* Pure white */
+    --card-foreground: 231 65% 21%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 231 65% 21%;
+
+    --primary: 210 100% 50%;
+    /* #0080FF - Batoo Blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 206 40% 95%;
+    /* Light grayish blue */
+    --secondary-foreground: 231 65% 21%;
+
+    --muted: 206 30% 93%;
+    --muted-foreground: 231 30% 50%;
+
+    --accent: 180 100% 81%;
+    /* #9AFFFF - Cyan accent */
+    --accent-foreground: 231 65% 21%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 206 30% 88%;
+    --input: 206 30% 88%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Clean scrollbar for light theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-muted-foreground/30 transition-colors;
+  }
+}
