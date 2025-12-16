@@ -80,7 +80,7 @@ export default function Dashboard({ initialBoats }: DashboardProps) {
 
             {/* SIDEBAR - Dark Navy */}
             <aside className={`
-                fixed inset-y-0 left-0 z-40 w-72 bg-[#121A54] text-white p-6 shadow-xl transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:h-screen md:sticky md:top-0
+                fixed inset-y-0 left-0 z-40 w-72 bg-[#121A54] text-white p-6 shadow-xl transition-transform duration-300 ease-in-out overflow-y-auto md:translate-x-0 md:static md:h-screen md:sticky md:top-0
                 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
             `}>
                 <div className="flex mb-8 items-center">
