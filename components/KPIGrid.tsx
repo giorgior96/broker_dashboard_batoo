@@ -12,8 +12,9 @@ export function KPIGrid({ boats }: { boats: Boat[] }) {
             totalValue: 0, soldCount: 0, priceMin: 0, priceMax: 0, topBuilder: '-', avgLength: 0
         };
 
-        const totalPrice = boats.reduce((sum, b) => sum + (b.price_eur || 0), 0);
-        const avgPrice = totalPrice / total;
+        const validPricedBoats = boats.filter(b => b.price_eur && b.price_eur > 0);
+        const totalPrice = validPricedBoats.reduce((sum, b) => sum + b.price_eur, 0);
+        const avgPrice = validPricedBoats.length > 0 ? totalPrice / validPricedBoats.length : 0;
 
         const validLengths = boats.filter(b => b.length > 0 && b.price_eur > 0);
         const avgPricePerM = validLengths.reduce((sum, b) => sum + (b.price_eur / b.length), 0) / (validLengths.length || 1);
