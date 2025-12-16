@@ -1,6 +1,7 @@
 "use client";
 
 import { Boat } from "@/lib/supabase";
+import Image from "next/image";
 
 export function InventoryTable({ boats }: { boats: Boat[] }) {
     return (
@@ -33,7 +34,15 @@ export function InventoryTable({ boats }: { boats: Boat[] }) {
                             <tr key={boat.id} className="hover:bg-white/5 transition-colors group">
                                 <td className="px-4 py-3">
                                     {boat.image_url ? (
-                                        <img src={boat.image_url} alt="boat" className="w-12 h-8 object-cover rounded shadow-sm border border-border/50" />
+                                        <div className="relative w-12 h-8 rounded overflow-hidden shadow-sm border border-border/50">
+                                            <Image
+                                                src={boat.image_url}
+                                                alt={boat.model}
+                                                fill
+                                                className="object-cover"
+                                                sizes="48px"
+                                            />
+                                        </div>
                                     ) : (
                                         <div className="w-12 h-8 bg-secondary/50 rounded flex items-center justify-center text-[8px] text-muted-foreground">N/A</div>
                                     )}
@@ -61,11 +70,13 @@ export function InventoryTable({ boats }: { boats: Boat[] }) {
                     </tbody>
                 </table>
             </div>
-            {boats.length > 50 && (
-                <div className="p-2 text-center text-xs text-muted-foreground bg-muted/20">
-                    Showing 50 of {boats.length} rows
-                </div>
-            )}
-        </div>
+            {
+                boats.length > 50 && (
+                    <div className="p-2 text-center text-xs text-muted-foreground bg-muted/20">
+                        Showing 50 of {boats.length} rows
+                    </div>
+                )
+            }
+        </div >
     );
 }
