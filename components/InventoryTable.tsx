@@ -52,7 +52,14 @@ export function InventoryTable({ boats }: { boats: Boat[] }) {
                                 <td className="px-4 py-3 text-muted-foreground font-mono text-xs">{boat.year_built}</td>
                                 <td className="px-4 py-3 text-muted-foreground font-mono text-xs">{boat.length}m</td>
                                 <td className="px-4 py-3 font-mono text-foreground font-semibold">
-                                    {boat.price_eur ? `€${boat.price_eur.toLocaleString()}` : <span className="text-muted-foreground/30">-</span>}
+                                    <div className="flex flex-col">
+                                        <span>{boat.price_eur ? `€${boat.price_eur.toLocaleString()}` : <span className="text-muted-foreground/30">-</span>}</span>
+                                        {boat.vat_status && (
+                                            <span className="text-[10px] text-muted-foreground font-sans font-normal uppercase tracking-wide">
+                                                {boat.vat_status}
+                                            </span>
+                                        )}
+                                    </div>
                                 </td>
                                 <td className="px-4 py-3 text-center">
                                     {boat.is_sold ? (
